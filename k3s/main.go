@@ -75,7 +75,6 @@ func New(
 		WithEntrypoint([]string{"entrypoint.sh"}).
 		WithMountedCache("/etc/rancher/k3s", ccache).
 		WithMountedTemp("/etc/lib/cni").
-		WithMountedTemp("/var/lib/kubelet").
 		WithMountedCache("/var/lib/rancher", dag.CacheVolume("k3s_cache_"+name)).
 		WithEnvVariable("CACHEBUST", time.Now().String()).
 		WithExec([]string{"rm", "-rf", "/var/lib/rancher/k3s/server/tls", "/etc/rancher/k3s/k3s.yaml"}).
